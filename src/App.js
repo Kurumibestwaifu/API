@@ -1,13 +1,18 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Layout from "./component/base/Layout";
 import Books from "./pages/books";
-import SignIn from "./pages/signIn";
 import { useAppSelector } from "./containers/store";
 import { useEffect } from "react";
 import { getToken } from "./utilities/cookies";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "./containers/Auth/actions";
-
+import { login, loginSuccess } from "./containers/Auth/actions";
+import './App.css';
+import About from "./pages/About";
+import Eiga from "./pages/Eiga";
+import Seikaku from "./pages/Seikaku";
+import Shashin from "./pages/Shashin";
+import Kurumi from "./pages/Kurumi";
+import Login from "./pages/signIn";
 function App() {
   const dispatch = useDispatch();
 
@@ -24,12 +29,16 @@ function App() {
           <Switch>
             <PrivateRoute
               exact
-              path="/"
+              path="/Book"
               component={Books}
               isAuthenticated={false}
             />
-
-            <Route exact path="/sign-in" component={SignIn} />
+            <Route exact path="/Eiga" component={Eiga} />
+            <Route exact path="/Shashin" component={Shashin} />
+            <Route exact path="/Seikaku" component={Seikaku} />
+            <Route exact path="/Kurumi" component={Kurumi} />
+            <Route exact path="/signin" component={Login} />
+            <Route exact path="/" component={About} />
           </Switch>
         </Layout>
       </BrowserRouter>

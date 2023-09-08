@@ -24,10 +24,9 @@ function About(){
 <section id="waifu">
   <h4>My favorite character</h4>
   <h2> Tokisaki Kurumi</h2>
-  <h1> Anime: Date a live </h1>
-    <h1>Team member: Lê Văn Hùng 22560032
-                 Vũ Đại Nam  22560012
-  </h1>
+  <h1> Anime: Date a live</h1>
+   <h1> Team member: Lê Văn Hùng 22560032</h1>
+               <h1>  Vũ Đại Nam  22560012</h1>
 
 </section>
 

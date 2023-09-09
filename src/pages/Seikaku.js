@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { logout } from "../utilities/common";
+import { useAppSelector } from "../containers/store";
 import pacgk from './Pic/e2be93b077055364de12be37b35f71cd.jpg';
 import icon from './Pic/logo1.jpg';
 function Seikaku() {
+  const { isAuth, data: userData } = useAppSelector((state) => state.authReducer);
   return (
     <div>
       <section id="header">
@@ -13,7 +16,8 @@ function Seikaku() {
         <li><Link to='/Shashin'>Shashin</Link></li>
         <li><Link to ='/Eiga'>Eiga</Link></li>
         <li><Link to='/Seikaku'>Seikaku</Link></li>
-        <li><Link to='/sign in'>sign in</Link></li>
+       <li>{!isAuth && <Link to="/signin" >Login </Link>}</li> 
+        <li>{isAuth && <Link to="/signin" onClick={logout}>Logout</Link>}</li>
           </ul>
         </div>
       </section>

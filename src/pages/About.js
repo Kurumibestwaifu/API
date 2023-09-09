@@ -1,6 +1,6 @@
 import { logout } from "../utilities/common";
 import { React } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { useAppSelector } from "../containers/store";
 import icon from './Pic/logo1.jpg';
 function About(){

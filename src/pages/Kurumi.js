@@ -1,7 +1,10 @@
 
 import { React } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { logout } from "../utilities/common";
+import { useAppSelector } from "../containers/store";
 function Kurumi(){
+  const { isAuth, data: userData } = useAppSelector((state) => state.authReducer);
     return(
         <div>
 <section id="header">
@@ -12,7 +15,8 @@ function Kurumi(){
         <li><Link to='/Shashin'>Shashin</Link></li>
         <li><Link to ='/Eiga'>Eiga</Link></li>
         <li><Link to='/Seikaku'>Seikaku</Link></li>
-        <li><Link to='/sign in'>sign in</Link></li>
+       <li>{!isAuth && <Link to="/signin" >Login </Link>}</li> 
+        <li>{isAuth && <Link to="/signin" onClick={logout}>Logout</Link>}</li>
        </ul>
   </div>
 </section>

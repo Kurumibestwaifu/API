@@ -1,6 +1,8 @@
 
 import { React } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useAppSelector } from "../containers/store";
+import { logout } from "../utilities/common";
 import icon from './Pic/logo1.jpg';
 import m1 from './Movie/animevsub-69489.webp';
 import m2 from './Movie/animevsub-9efuGfFVLq.jpg';
@@ -13,6 +15,7 @@ import m8 from './Pic/d705eb2d64c319c108b31c56218520c2.jpg';
 import m9 from './Movie/animevsub-VsyImkZaYX.jpg';
 import m10 from './Movie/animevsub-77947.jpg';
 function Eiga(){
+   const { isAuth, data: userData } = useAppSelector((state) => state.authReducer);
     return(
 
 
@@ -27,7 +30,8 @@ function Eiga(){
         <li><Link to='/Shashin'>Shashin</Link></li>
         <li><Link to ='/Eiga'>Eiga</Link></li>
         <li><Link to='/Seikaku'>Seikaku</Link></li>
-        <li><Link to='/sign in'>sign in</Link></li>
+       <li>{!isAuth && <Link to="/signin" >Login </Link>}</li> 
+        <li>{isAuth && <Link to="/signin" onClick={logout}>Logout</Link>}</li>
        </ul>
   </div>
 </section>

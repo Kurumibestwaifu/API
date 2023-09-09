@@ -1,6 +1,8 @@
 
 import { React } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { logout } from "../utilities/common";
+import { useAppSelector } from "../containers/store";
 import p1 from './Pic/28d87a60e455fffc4713352788bab4a7.jpg';
 import p2 from './Pic/234f183e2ac99b9f7dae7c7e6444294a.jpg';
 import p3 from './Pic/c6e7ad8286166d1493f7b519435451c3.jpg';
@@ -27,6 +29,7 @@ import p23 from './Pic/46c7f5b304805ea5f9634fdbdf1bd4b4.jpg';
 import p24 from './Pic/Kurumi.jfif';
 import icon from './Pic/logo1.jpg';
 function Shashin(){
+    const { isAuth, data: userData } = useAppSelector((state) => state.authReducer);
     return(
 
 
@@ -40,7 +43,8 @@ function Shashin(){
         <li><Link to='/Shashin'>Shashin</Link></li>
         <li><Link to ='/Eiga'>Eiga</Link></li>
         <li><Link to='/Seikaku'>Seikaku</Link></li>
-        <li><Link to='/sign in'>sign in</Link></li>
+       <li>{!isAuth && <Link to="/signin" >Login </Link>}</li> 
+        <li>{isAuth && <Link to="/signin" onClick={logout}>Logout</Link>}</li>
        </ul>
   </div>
 </section> 

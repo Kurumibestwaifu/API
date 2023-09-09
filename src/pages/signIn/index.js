@@ -178,7 +178,7 @@ const Login = () => {
 
           <button type="submit">LOGIN</button>
         </div>
-        <Link to ='/sign-up' id="form-move">Don't have account ?</Link>
+        <Link to ='/sign-up' id="form-move"></Link>
       </form>
     </Container>
   );
